@@ -134,4 +134,15 @@ body {
 }
 
 
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Adjust the space between the image and the title */
+}
+
+.title-image {
+  width: 50px; /* Adjust based on your needs */
+  height: auto; /* This maintains the aspect ratio of the image */
+}
 
