@@ -1,0 +1,730 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            h1 {text-align: center;}
+            h2 {text-align: center;}
+		  .topnav {
+			display: flex; /* Aligns items in a row */
+			flex-wrap: wrap; /* Allows items to wrap in case of overflow */
+			gap: 1px; /* Adds space between each item */
+			padding: 20px; /* Adds padding inside the container for spacing */
+			box-sizing: border-box; /* Ensures padding does not affect overall width */
+			justify-content: left; /* Centers the buttons horizontally */
+			margin: auto; /* Centers the navigation menu horizontally in the page */
+		  }
+
+		  .topnav a {
+			background-color: white; 
+			color: black;
+			padding: 10px 20px;
+			text-decoration: none;
+			font-size: 17px;
+			border: 2px solid #27aae2;
+			border-radius: 20px; /* Gives an oval rectangular shape */
+			transition: background-color 0.4s, color 0.4s; /* Smooth transition for hover effect */
+		  }
+
+		  .topnav a:hover {
+			background-color: #27aae2;
+			color: white;
+		  }
+          </style>
+          <title>Patch Statistics</title>
+        </head>
+        <body>
+
+        <h1>Patch Statistics and Train/Val/Test distribution</h1>
+        <div class="topnav">
+        <div class="topnav-right">
+            <a href="home.html">Back</a>
+        </div>
+        </div>
+        <h2>Patches Distribution for each split (Number of 240x240 Images)</h2><style  type="text/css" >
+#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col0,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col0,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col0,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col0{
+            background-color:  red;
+            text-align:  center;
+            background-color:  red;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col1,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col1,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col1,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col1{
+            background-color:  green;
+            text-align:  center;
+            background-color:  green;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col2,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col2,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col2,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col2{
+            background-color:  limegreen;
+            text-align:  center;
+            background-color:  limegreen;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col3,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col3,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col3,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col3{
+            color:  white;
+            background-color:  brown;
+            text-align:  center;
+            color:  white;
+            background-color:  brown;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col4,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col4,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col4,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col4{
+            background-color:  orange;
+            text-align:  center;
+            background-color:  orange;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col5,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col5,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col5,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col5{
+            color:  white;
+            background-color:  thistle;
+            text-align:  center;
+            color:  white;
+            background-color:  thistle;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col6,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col6,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col6,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col6{
+            color:  white;
+            background-color:  navy;
+            text-align:  center;
+            color:  white;
+            background-color:  navy;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col7,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col7,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col7,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col7{
+            background-color:  gold;
+            text-align:  center;
+            background-color:  gold;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col8,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col8,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col8,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col8{
+            color:  white;
+            background-color:  purple;
+            text-align:  center;
+            color:  white;
+            background-color:  purple;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col9,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col9,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col9,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col9{
+            background-color:  darkkhaki;
+            text-align:  center;
+            background-color:  darkkhaki;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col10,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col10,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col10,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col10{
+            background-color:  darkturquoise;
+            text-align:  center;
+            background-color:  darkturquoise;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col11,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col11,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col11,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col11{
+            background-color:  bisque;
+            text-align:  center;
+            background-color:  bisque;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col12,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col12,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col12,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col12{
+            background-color:  dimgrey;
+            text-align:  center;
+            background-color:  dimgrey;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col13,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col13,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col13,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col13{
+            background-color:  hotpink;
+            text-align:  center;
+            background-color:  hotpink;
+            text-align:  center;
+        }#T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col14,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col14,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col14,#T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col14{
+            background-color:  yellow;
+            text-align:  center;
+            background-color:  yellow;
+            text-align:  center;
+        }</style><table id="T_dbf99738_d18a_11ee_b174_d037451fcb0d" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Marine Debris</th>        <th class="col_heading level0 col1" >Dense Sargassum</th>        <th class="col_heading level0 col2" >Sparse Floating Algae</th>        <th class="col_heading level0 col3" >Natural Organic Material</th>        <th class="col_heading level0 col4" >Ship</th>        <th class="col_heading level0 col5" >Oil Spill</th>        <th class="col_heading level0 col6" >Marine Water</th>        <th class="col_heading level0 col7" >Sediment-Laden Water</th>        <th class="col_heading level0 col8" >Foam</th>        <th class="col_heading level0 col9" >Turbid Water</th>        <th class="col_heading level0 col10" >Shallow Water</th>        <th class="col_heading level0 col11" >Waves & Wakes</th>        <th class="col_heading level0 col12" >Oil Platform</th>        <th class="col_heading level0 col13" >Jellyfish</th>        <th class="col_heading level0 col14" >Sea snot</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_dbf99738_d18a_11ee_b174_d037451fcb0dlevel0_row0" class="row_heading level0 row0" >Train</th>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col0" class="data row0 col0" >250</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col1" class="data row0 col1" >44</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col2" class="data row0 col2" >89</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col3" class="data row0 col3" >52</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col4" class="data row0 col4" >137</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col5" class="data row0 col5" >204</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col6" class="data row0 col6" >701</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col7" class="data row0 col7" >29</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col8" class="data row0 col8" >31</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col9" class="data row0 col9" >125</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col10" class="data row0 col10" >72</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col11" class="data row0 col11" >98</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col12" class="data row0 col12" >149</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col13" class="data row0 col13" >6</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow0_col14" class="data row0 col14" >31</td>
+            </tr>
+            <tr>
+                        <th id="T_dbf99738_d18a_11ee_b174_d037451fcb0dlevel0_row1" class="row_heading level0 row1" >Validation</th>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col0" class="data row1 col0" >98</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col1" class="data row1 col1" >12</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col2" class="data row1 col2" >31</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col3" class="data row1 col3" >22</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col4" class="data row1 col4" >75</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col5" class="data row1 col5" >77</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col6" class="data row1 col6" >307</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col7" class="data row1 col7" >15</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col8" class="data row1 col8" >13</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col9" class="data row1 col9" >47</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col10" class="data row1 col10" >29</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col11" class="data row1 col11" >59</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col12" class="data row1 col12" >92</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col13" class="data row1 col13" >4</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow1_col14" class="data row1 col14" >16</td>
+            </tr>
+            <tr>
+                        <th id="T_dbf99738_d18a_11ee_b174_d037451fcb0dlevel0_row2" class="row_heading level0 row2" >Test</th>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col0" class="data row2 col0" >124</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col1" class="data row2 col1" >21</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col2" class="data row2 col2" >37</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col3" class="data row2 col3" >18</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col4" class="data row2 col4" >86</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col5" class="data row2 col5" >80</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col6" class="data row2 col6" >352</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col7" class="data row2 col7" >13</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col8" class="data row2 col8" >14</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col9" class="data row2 col9" >60</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col10" class="data row2 col10" >39</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col11" class="data row2 col11" >67</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col12" class="data row2 col12" >107</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col13" class="data row2 col13" >2</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow2_col14" class="data row2 col14" >16</td>
+            </tr>
+            <tr>
+                        <th id="T_dbf99738_d18a_11ee_b174_d037451fcb0dlevel0_row3" class="row_heading level0 row3" >Total</th>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col0" class="data row3 col0" >472</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col1" class="data row3 col1" >77</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col2" class="data row3 col2" >157</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col3" class="data row3 col3" >92</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col4" class="data row3 col4" >298</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col5" class="data row3 col5" >361</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col6" class="data row3 col6" >1360</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col7" class="data row3 col7" >57</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col8" class="data row3 col8" >58</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col9" class="data row3 col9" >232</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col10" class="data row3 col10" >140</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col11" class="data row3 col11" >224</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col12" class="data row3 col12" >348</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col13" class="data row3 col13" >12</td>
+                        <td id="T_dbf99738_d18a_11ee_b174_d037451fcb0drow3_col14" class="data row3 col14" >63</td>
+            </tr>
+    </tbody></table><h2>Patches Percentage Distribution (%) for each split (Distribution of 240x240 Images)</h2><style  type="text/css" >
+#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col0,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col0,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col0,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col0{
+            background-color:  red;
+            text-align:  center;
+            background-color:  red;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col1,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col1,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col1,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col1{
+            background-color:  green;
+            text-align:  center;
+            background-color:  green;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col2,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col2,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col2,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col2{
+            background-color:  limegreen;
+            text-align:  center;
+            background-color:  limegreen;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col3,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col3,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col3,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col3{
+            color:  white;
+            background-color:  brown;
+            text-align:  center;
+            color:  white;
+            background-color:  brown;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col4,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col4,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col4,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col4{
+            background-color:  orange;
+            text-align:  center;
+            background-color:  orange;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col5,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col5,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col5,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col5{
+            color:  white;
+            background-color:  thistle;
+            text-align:  center;
+            color:  white;
+            background-color:  thistle;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col6,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col6,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col6,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col6{
+            color:  white;
+            background-color:  navy;
+            text-align:  center;
+            color:  white;
+            background-color:  navy;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col7,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col7,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col7,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col7{
+            background-color:  gold;
+            text-align:  center;
+            background-color:  gold;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col8,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col8,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col8,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col8{
+            color:  white;
+            background-color:  purple;
+            text-align:  center;
+            color:  white;
+            background-color:  purple;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col9,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col9,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col9,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col9{
+            background-color:  darkkhaki;
+            text-align:  center;
+            background-color:  darkkhaki;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col10,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col10,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col10,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col10{
+            background-color:  darkturquoise;
+            text-align:  center;
+            background-color:  darkturquoise;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col11,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col11,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col11,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col11{
+            background-color:  bisque;
+            text-align:  center;
+            background-color:  bisque;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col12,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col12,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col12,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col12{
+            background-color:  dimgrey;
+            text-align:  center;
+            background-color:  dimgrey;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col13,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col13,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col13,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col13{
+            background-color:  hotpink;
+            text-align:  center;
+            background-color:  hotpink;
+            text-align:  center;
+        }#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col14,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col14,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col14,#T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col14{
+            background-color:  yellow;
+            text-align:  center;
+            background-color:  yellow;
+            text-align:  center;
+        }</style><table id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0d" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Marine Debris</th>        <th class="col_heading level0 col1" >Dense Sargassum</th>        <th class="col_heading level0 col2" >Sparse Floating Algae</th>        <th class="col_heading level0 col3" >Natural Organic Material</th>        <th class="col_heading level0 col4" >Ship</th>        <th class="col_heading level0 col5" >Oil Spill</th>        <th class="col_heading level0 col6" >Marine Water</th>        <th class="col_heading level0 col7" >Sediment-Laden Water</th>        <th class="col_heading level0 col8" >Foam</th>        <th class="col_heading level0 col9" >Turbid Water</th>        <th class="col_heading level0 col10" >Shallow Water</th>        <th class="col_heading level0 col11" >Waves & Wakes</th>        <th class="col_heading level0 col12" >Oil Platform</th>        <th class="col_heading level0 col13" >Jellyfish</th>        <th class="col_heading level0 col14" >Sea snot</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0dlevel0_row0" class="row_heading level0 row0" >Train</th>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col0" class="data row0 col0" >12.39</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col1" class="data row0 col1" >2.18</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col2" class="data row0 col2" >4.41</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col3" class="data row0 col3" >2.58</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col4" class="data row0 col4" >6.79</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col5" class="data row0 col5" >10.11</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col6" class="data row0 col6" >34.74</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col7" class="data row0 col7" >1.44</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col8" class="data row0 col8" >1.54</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col9" class="data row0 col9" >6.19</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col10" class="data row0 col10" >3.57</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col11" class="data row0 col11" >4.86</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col12" class="data row0 col12" >7.38</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col13" class="data row0 col13" >0.30</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow0_col14" class="data row0 col14" >1.54</td>
+            </tr>
+            <tr>
+                        <th id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0dlevel0_row1" class="row_heading level0 row1" >Validation</th>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col0" class="data row1 col0" >10.93</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col1" class="data row1 col1" >1.34</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col2" class="data row1 col2" >3.46</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col3" class="data row1 col3" >2.45</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col4" class="data row1 col4" >8.36</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col5" class="data row1 col5" >8.58</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col6" class="data row1 col6" >34.23</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col7" class="data row1 col7" >1.67</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col8" class="data row1 col8" >1.45</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col9" class="data row1 col9" >5.24</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col10" class="data row1 col10" >3.23</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col11" class="data row1 col11" >6.58</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col12" class="data row1 col12" >10.26</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col13" class="data row1 col13" >0.45</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow1_col14" class="data row1 col14" >1.78</td>
+            </tr>
+            <tr>
+                        <th id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0dlevel0_row2" class="row_heading level0 row2" >Test</th>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col0" class="data row2 col0" >11.97</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col1" class="data row2 col1" >2.03</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col2" class="data row2 col2" >3.57</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col3" class="data row2 col3" >1.74</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col4" class="data row2 col4" >8.30</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col5" class="data row2 col5" >7.72</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col6" class="data row2 col6" >33.98</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col7" class="data row2 col7" >1.25</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col8" class="data row2 col8" >1.35</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col9" class="data row2 col9" >5.79</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col10" class="data row2 col10" >3.76</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col11" class="data row2 col11" >6.47</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col12" class="data row2 col12" >10.33</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col13" class="data row2 col13" >0.19</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow2_col14" class="data row2 col14" >1.54</td>
+            </tr>
+            <tr>
+                        <th id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0dlevel0_row3" class="row_heading level0 row3" >Total</th>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col0" class="data row3 col0" >11.95</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col1" class="data row3 col1" >1.95</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col2" class="data row3 col2" >3.97</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col3" class="data row3 col3" >2.33</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col4" class="data row3 col4" >7.54</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col5" class="data row3 col5" >9.14</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col6" class="data row3 col6" >34.42</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col7" class="data row3 col7" >1.44</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col8" class="data row3 col8" >1.47</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col9" class="data row3 col9" >5.87</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col10" class="data row3 col10" >3.54</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col11" class="data row3 col11" >5.67</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col12" class="data row3 col12" >8.81</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col13" class="data row3 col13" >0.30</td>
+                        <td id="T_dc0901b4_d18a_11ee_b92e_d037451fcb0drow3_col14" class="data row3 col14" >1.59</td>
+            </tr>
+    </tbody></table><h2>Pixel Distribution for each split</h2><style  type="text/css" >
+#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col0,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col0,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col0,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col0{
+            background-color:  red;
+            text-align:  center;
+            background-color:  red;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col1,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col1,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col1,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col1{
+            background-color:  green;
+            text-align:  center;
+            background-color:  green;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col2,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col2,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col2,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col2{
+            background-color:  limegreen;
+            text-align:  center;
+            background-color:  limegreen;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col3,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col3,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col3,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col3{
+            color:  white;
+            background-color:  brown;
+            text-align:  center;
+            color:  white;
+            background-color:  brown;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col4,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col4,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col4,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col4{
+            background-color:  orange;
+            text-align:  center;
+            background-color:  orange;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col5,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col5,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col5,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col5{
+            color:  white;
+            background-color:  thistle;
+            text-align:  center;
+            color:  white;
+            background-color:  thistle;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col6,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col6,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col6,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col6{
+            color:  white;
+            background-color:  navy;
+            text-align:  center;
+            color:  white;
+            background-color:  navy;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col7,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col7,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col7,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col7{
+            background-color:  gold;
+            text-align:  center;
+            background-color:  gold;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col8,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col8,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col8,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col8{
+            color:  white;
+            background-color:  purple;
+            text-align:  center;
+            color:  white;
+            background-color:  purple;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col9,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col9,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col9,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col9{
+            background-color:  darkkhaki;
+            text-align:  center;
+            background-color:  darkkhaki;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col10,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col10,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col10,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col10{
+            background-color:  darkturquoise;
+            text-align:  center;
+            background-color:  darkturquoise;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col11,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col11,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col11,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col11{
+            background-color:  bisque;
+            text-align:  center;
+            background-color:  bisque;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col12,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col12,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col12,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col12{
+            background-color:  dimgrey;
+            text-align:  center;
+            background-color:  dimgrey;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col13,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col13,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col13,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col13{
+            background-color:  hotpink;
+            text-align:  center;
+            background-color:  hotpink;
+            text-align:  center;
+        }#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col14,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col14,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col14,#T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col14{
+            background-color:  yellow;
+            text-align:  center;
+            background-color:  yellow;
+            text-align:  center;
+        }</style><table id="T_dc50c2be_d18a_11ee_8474_d037451fcb0d" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Marine Debris</th>        <th class="col_heading level0 col1" >Dense Sargassum</th>        <th class="col_heading level0 col2" >Sparse Floating Algae</th>        <th class="col_heading level0 col3" >Natural Organic Material</th>        <th class="col_heading level0 col4" >Ship</th>        <th class="col_heading level0 col5" >Oil Spill</th>        <th class="col_heading level0 col6" >Marine Water</th>        <th class="col_heading level0 col7" >Sediment-Laden Water</th>        <th class="col_heading level0 col8" >Foam</th>        <th class="col_heading level0 col9" >Turbid Water</th>        <th class="col_heading level0 col10" >Shallow Water</th>        <th class="col_heading level0 col11" >Waves & Wakes</th>        <th class="col_heading level0 col12" >Oil Platform</th>        <th class="col_heading level0 col13" >Jellyfish</th>        <th class="col_heading level0 col14" >Sea snot</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_dc50c2be_d18a_11ee_8474_d037451fcb0dlevel0_row0" class="row_heading level0 row0" >Train</th>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col0" class="data row0 col0" >2561</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col1" class="data row0 col1" >1838</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col2" class="data row0 col2" >2559</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col3" class="data row0 col3" >1081</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col4" class="data row0 col4" >5908</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col5" class="data row0 col5" >140584</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col6" class="data row0 col6" >264943</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col7" class="data row0 col7" >157242</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col8" class="data row0 col8" >469</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col9" class="data row0 col9" >89062</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col10" class="data row0 col10" >70002</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col11" class="data row0 col11" >9975</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col12" class="data row0 col12" >6988</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col13" class="data row0 col13" >1339</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow0_col14" class="data row0 col14" >7336</td>
+            </tr>
+            <tr>
+                        <th id="T_dc50c2be_d18a_11ee_8474_d037451fcb0dlevel0_row1" class="row_heading level0 row1" >Validation</th>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col0" class="data row1 col0" >1162</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col1" class="data row1 col1" >1167</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col2" class="data row1 col2" >627</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col3" class="data row1 col3" >95</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col4" class="data row1 col4" >3740</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col5" class="data row1 col5" >42456</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col6" class="data row1 col6" >92294</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col7" class="data row1 col7" >125565</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col8" class="data row1 col8" >369</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col9" class="data row1 col9" >39076</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col10" class="data row1 col10" >40019</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col11" class="data row1 col11" >3998</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col12" class="data row1 col12" >3923</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col13" class="data row1 col13" >928</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow1_col14" class="data row1 col14" >2702</td>
+            </tr>
+            <tr>
+                        <th id="T_dc50c2be_d18a_11ee_8474_d037451fcb0dlevel0_row2" class="row_heading level0 row2" >Test</th>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col0" class="data row2 col0" >973</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col1" class="data row2 col1" >1303</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col2" class="data row2 col2" >1786</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col3" class="data row2 col3" >278</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col4" class="data row2 col4" >3574</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col5" class="data row2 col5" >51528</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col6" class="data row2 col6" >139465</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col7" class="data row2 col7" >93254</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col8" class="data row2 col8" >387</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col9" class="data row2 col9" >42168</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col10" class="data row2 col10" >12732</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col11" class="data row2 col11" >6401</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col12" class="data row2 col12" >4790</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col13" class="data row2 col13" >274</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow2_col14" class="data row2 col14" >2234</td>
+            </tr>
+            <tr>
+                        <th id="T_dc50c2be_d18a_11ee_8474_d037451fcb0dlevel0_row3" class="row_heading level0 row3" >Total</th>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col0" class="data row3 col0" >4696</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col1" class="data row3 col1" >4308</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col2" class="data row3 col2" >4972</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col3" class="data row3 col3" >1454</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col4" class="data row3 col4" >13222</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col5" class="data row3 col5" >234568</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col6" class="data row3 col6" >496702</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col7" class="data row3 col7" >376061</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col8" class="data row3 col8" >1225</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col9" class="data row3 col9" >170306</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col10" class="data row3 col10" >122753</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col11" class="data row3 col11" >20374</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col12" class="data row3 col12" >15701</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col13" class="data row3 col13" >2541</td>
+                        <td id="T_dc50c2be_d18a_11ee_8474_d037451fcb0drow3_col14" class="data row3 col14" >12272</td>
+            </tr>
+    </tbody></table><h2>Pixel Percentage Distribution (%) for each split</h2><style  type="text/css" >
+#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col0,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col0,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col0,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col0{
+            background-color:  red;
+            text-align:  center;
+            background-color:  red;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col1,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col1,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col1,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col1{
+            background-color:  green;
+            text-align:  center;
+            background-color:  green;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col2,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col2,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col2,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col2{
+            background-color:  limegreen;
+            text-align:  center;
+            background-color:  limegreen;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col3,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col3,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col3,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col3{
+            color:  white;
+            background-color:  brown;
+            text-align:  center;
+            color:  white;
+            background-color:  brown;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col4,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col4,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col4,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col4{
+            background-color:  orange;
+            text-align:  center;
+            background-color:  orange;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col5,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col5,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col5,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col5{
+            color:  white;
+            background-color:  thistle;
+            text-align:  center;
+            color:  white;
+            background-color:  thistle;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col6,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col6,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col6,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col6{
+            color:  white;
+            background-color:  navy;
+            text-align:  center;
+            color:  white;
+            background-color:  navy;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col7,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col7,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col7,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col7{
+            background-color:  gold;
+            text-align:  center;
+            background-color:  gold;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col8,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col8,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col8,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col8{
+            color:  white;
+            background-color:  purple;
+            text-align:  center;
+            color:  white;
+            background-color:  purple;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col9,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col9,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col9,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col9{
+            background-color:  darkkhaki;
+            text-align:  center;
+            background-color:  darkkhaki;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col10,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col10,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col10,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col10{
+            background-color:  darkturquoise;
+            text-align:  center;
+            background-color:  darkturquoise;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col11,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col11,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col11,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col11{
+            background-color:  bisque;
+            text-align:  center;
+            background-color:  bisque;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col12,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col12,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col12,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col12{
+            background-color:  dimgrey;
+            text-align:  center;
+            background-color:  dimgrey;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col13,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col13,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col13,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col13{
+            background-color:  hotpink;
+            text-align:  center;
+            background-color:  hotpink;
+            text-align:  center;
+        }#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col14,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col14,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col14,#T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col14{
+            background-color:  yellow;
+            text-align:  center;
+            background-color:  yellow;
+            text-align:  center;
+        }</style><table id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0d" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Marine Debris</th>        <th class="col_heading level0 col1" >Dense Sargassum</th>        <th class="col_heading level0 col2" >Sparse Floating Algae</th>        <th class="col_heading level0 col3" >Natural Organic Material</th>        <th class="col_heading level0 col4" >Ship</th>        <th class="col_heading level0 col5" >Oil Spill</th>        <th class="col_heading level0 col6" >Marine Water</th>        <th class="col_heading level0 col7" >Sediment-Laden Water</th>        <th class="col_heading level0 col8" >Foam</th>        <th class="col_heading level0 col9" >Turbid Water</th>        <th class="col_heading level0 col10" >Shallow Water</th>        <th class="col_heading level0 col11" >Waves & Wakes</th>        <th class="col_heading level0 col12" >Oil Platform</th>        <th class="col_heading level0 col13" >Jellyfish</th>        <th class="col_heading level0 col14" >Sea snot</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0dlevel0_row0" class="row_heading level0 row0" >Train</th>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col0" class="data row0 col0" >0.34</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col1" class="data row0 col1" >0.24</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col2" class="data row0 col2" >0.34</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col3" class="data row0 col3" >0.14</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col4" class="data row0 col4" >0.78</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col5" class="data row0 col5" >18.45</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col6" class="data row0 col6" >34.77</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col7" class="data row0 col7" >20.64</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col8" class="data row0 col8" >0.06</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col9" class="data row0 col9" >11.69</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col10" class="data row0 col10" >9.19</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col11" class="data row0 col11" >1.31</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col12" class="data row0 col12" >0.92</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col13" class="data row0 col13" >0.18</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow0_col14" class="data row0 col14" >0.96</td>
+            </tr>
+            <tr>
+                        <th id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0dlevel0_row1" class="row_heading level0 row1" >Validation</th>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col0" class="data row1 col0" >0.32</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col1" class="data row1 col1" >0.33</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col2" class="data row1 col2" >0.18</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col3" class="data row1 col3" >0.03</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col4" class="data row1 col4" >1.04</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col5" class="data row1 col5" >11.86</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col6" class="data row1 col6" >25.77</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col7" class="data row1 col7" >35.06</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col8" class="data row1 col8" >0.10</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col9" class="data row1 col9" >10.91</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col10" class="data row1 col10" >11.17</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col11" class="data row1 col11" >1.12</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col12" class="data row1 col12" >1.10</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col13" class="data row1 col13" >0.26</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow1_col14" class="data row1 col14" >0.75</td>
+            </tr>
+            <tr>
+                        <th id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0dlevel0_row2" class="row_heading level0 row2" >Test</th>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col0" class="data row2 col0" >0.27</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col1" class="data row2 col1" >0.36</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col2" class="data row2 col2" >0.49</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col3" class="data row2 col3" >0.08</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col4" class="data row2 col4" >0.99</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col5" class="data row2 col5" >14.27</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col6" class="data row2 col6" >38.62</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col7" class="data row2 col7" >25.82</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col8" class="data row2 col8" >0.11</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col9" class="data row2 col9" >11.68</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col10" class="data row2 col10" >3.53</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col11" class="data row2 col11" >1.77</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col12" class="data row2 col12" >1.33</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col13" class="data row2 col13" >0.08</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow2_col14" class="data row2 col14" >0.62</td>
+            </tr>
+            <tr>
+                        <th id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0dlevel0_row3" class="row_heading level0 row3" >Total</th>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col0" class="data row3 col0" >0.32</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col1" class="data row3 col1" >0.29</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col2" class="data row3 col2" >0.34</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col3" class="data row3 col3" >0.10</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col4" class="data row3 col4" >0.89</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col5" class="data row3 col5" >15.84</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col6" class="data row3 col6" >33.53</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col7" class="data row3 col7" >25.39</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col8" class="data row3 col8" >0.08</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col9" class="data row3 col9" >11.50</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col10" class="data row3 col10" >8.29</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col11" class="data row3 col11" >1.38</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col12" class="data row3 col12" >1.06</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col13" class="data row3 col13" >0.17</td>
+                        <td id="T_dc5ff6e4_d18a_11ee_b22b_d037451fcb0drow3_col14" class="data row3 col14" >0.83</td>
+            </tr>
+    </tbody></table><div>
+        
+                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
+            <div id="3af5fda1-7a4c-45b1-8ab1-dfa7c716e415" class="plotly-graph-div" style="height:650px; width:100%;"></div>
+            <script type="text/javascript">
+                
+                    window.PLOTLYENV=window.PLOTLYENV || {};
+                    
+                if (document.getElementById("3af5fda1-7a4c-45b1-8ab1-dfa7c716e415")) {
+                    Plotly.newPlot(
+                        '3af5fda1-7a4c-45b1-8ab1-dfa7c716e415',
+                        [{"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Marine Debris", "marker": {"color": "red"}, "name": "Marine Debris", "offsetgroup": "Marine Debris", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [250, 98, 124], "xaxis": "x", "y": ["Marine Debris", "Marine Debris", "Marine Debris"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Dense Sargassum", "marker": {"color": "green"}, "name": "Dense Sargassum", "offsetgroup": "Dense Sargassum", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [44, 12, 21], "xaxis": "x", "y": ["Dense Sargassum", "Dense Sargassum", "Dense Sargassum"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Sparse Floating Algae", "marker": {"color": "limegreen"}, "name": "Sparse Floating Algae", "offsetgroup": "Sparse Floating Algae", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [89, 31, 37], "xaxis": "x", "y": ["Sparse Floating Algae", "Sparse Floating Algae", "Sparse Floating Algae"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Natural Organic Material", "marker": {"color": "brown"}, "name": "Natural Organic Material", "offsetgroup": "Natural Organic Material", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [52, 22, 18], "xaxis": "x", "y": ["Natural Organic Material", "Natural Organic Material", "Natural Organic Material"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Ship", "marker": {"color": "orange"}, "name": "Ship", "offsetgroup": "Ship", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [137, 75, 86], "xaxis": "x", "y": ["Ship", "Ship", "Ship"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Oil Spill", "marker": {"color": "thistle"}, "name": "Oil Spill", "offsetgroup": "Oil Spill", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [204, 77, 80], "xaxis": "x", "y": ["Oil Spill", "Oil Spill", "Oil Spill"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Marine Water", "marker": {"color": "navy"}, "name": "Marine Water", "offsetgroup": "Marine Water", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [701, 307, 352], "xaxis": "x", "y": ["Marine Water", "Marine Water", "Marine Water"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Sediment-Laden Water", "marker": {"color": "gold"}, "name": "Sediment-Laden Water", "offsetgroup": "Sediment-Laden Water", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [29, 15, 13], "xaxis": "x", "y": ["Sediment-Laden Water", "Sediment-Laden Water", "Sediment-Laden Water"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Foam", "marker": {"color": "purple"}, "name": "Foam", "offsetgroup": "Foam", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [31, 13, 14], "xaxis": "x", "y": ["Foam", "Foam", "Foam"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Turbid Water", "marker": {"color": "darkkhaki"}, "name": "Turbid Water", "offsetgroup": "Turbid Water", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [125, 47, 60], "xaxis": "x", "y": ["Turbid Water", "Turbid Water", "Turbid Water"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Shallow Water", "marker": {"color": "darkturquoise"}, "name": "Shallow Water", "offsetgroup": "Shallow Water", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [72, 29, 39], "xaxis": "x", "y": ["Shallow Water", "Shallow Water", "Shallow Water"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Waves & Wakes", "marker": {"color": "bisque"}, "name": "Waves & Wakes", "offsetgroup": "Waves & Wakes", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [98, 59, 67], "xaxis": "x", "y": ["Waves & Wakes", "Waves & Wakes", "Waves & Wakes"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Oil Platform", "marker": {"color": "dimgrey"}, "name": "Oil Platform", "offsetgroup": "Oil Platform", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [149, 92, 107], "xaxis": "x", "y": ["Oil Platform", "Oil Platform", "Oil Platform"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Jellyfish", "marker": {"color": "hotpink"}, "name": "Jellyfish", "offsetgroup": "Jellyfish", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [6, 4, 2], "xaxis": "x", "y": ["Jellyfish", "Jellyfish", "Jellyfish"], "yaxis": "y"}, {"alignmentgroup": "True", "customdata": [["Train"], ["Validation"], ["Test"]], "hovertemplate": "Class=%{y}<br>Number of Patches=%{x}<br>Split=%{customdata[0]}<extra></extra>", "legendgroup": "Sea snot", "marker": {"color": "yellow"}, "name": "Sea snot", "offsetgroup": "Sea snot", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [31, 16, 16], "xaxis": "x", "y": ["Sea snot", "Sea snot", "Sea snot"], "yaxis": "y"}],
+                        {"barmode": "relative", "height": 650, "legend": {"title": {"text": "Class"}, "tracegroupgap": 0}, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Number of Patches for Each Class", "x": 0.5}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": "Number of Patches"}}, "yaxis": {"anchor": "x", "categoryarray": ["Sea snot", "Jellyfish", "Oil Platform", "Waves & Wakes", "Shallow Water", "Turbid Water", "Foam", "Sediment-Laden Water", "Marine Water", "Oil Spill", "Ship", "Natural Organic Material", "Sparse Floating Algae", "Dense Sargassum", "Marine Debris"], "categoryorder": "array", "domain": [0.0, 1.0], "title": {"text": "Class"}}},
+                        {"responsive": true}
+                    )
+                };
+                
+            </script>
+        </div><div>
+        
+                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
+            <div id="c88ba474-4813-4d8c-ab38-4082c98d8fca" class="plotly-graph-div" style="height:100%; width:100%;"></div>
+            <script type="text/javascript">
+                
+                    window.PLOTLYENV=window.PLOTLYENV || {};
+                    
+                if (document.getElementById("c88ba474-4813-4d8c-ab38-4082c98d8fca")) {
+                    Plotly.newPlot(
+                        'c88ba474-4813-4d8c-ab38-4082c98d8fca',
+                        [{"customdata": [[1906], [675], [197], [21], [4]], "hovertemplate": "Number of Classes=%{x}<br>Percentage of Patches (%)=%{y}<br>Number of Patches=%{customdata[0]}<extra></extra>", "legendgroup": "", "line": {"color": "#636efa", "dash": "solid"}, "mode": "markers+lines", "name": "", "orientation": "v", "showlegend": false, "type": "scatter", "x": [1, 2, 3, 4, 5], "xaxis": "x", "y": [68.0, 24.08, 7.03, 0.75, 0.14], "yaxis": "y"}],
+                        {"legend": {"tracegroupgap": 0}, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Percentage of Patches with correspondng number of annotated Classes", "x": 0.5}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": "Number of Classes"}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "title": {"text": "Percentage of Patches (%)"}}},
+                        {"responsive": true}
+                    )
+                };
+                
+            </script>
+        </div><div>
+        
+                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
+            <div id="7a2e51dc-deff-4376-94e7-96a7fe0c1fea" class="plotly-graph-div" style="height:600px; width:100%;"></div>
+            <script type="text/javascript">
+                
+                    window.PLOTLYENV=window.PLOTLYENV || {};
+                    
+                if (document.getElementById("7a2e51dc-deff-4376-94e7-96a7fe0c1fea")) {
+                    Plotly.newPlot(
+                        '7a2e51dc-deff-4376-94e7-96a7fe0c1fea',
+                        [{"colorscale": [[0, "navy"], [1, "plum"]], "reversescale": false, "showscale": false, "type": "heatmap", "x": ["Marine Debris", "Dense Sargassum", "Sparse Floating Algae", "Natural Organic Material", "Ship", "Oil Spill", "Marine Water", "Sediment-Laden Water", "Foam", "Turbid Water", "Shallow Water", "Waves & Wakes", "Oil Platform", "Jellyfish", "Sea snot"], "y": ["Marine Debris", "Dense Sargassum", "Sparse Floating Algae", "Natural Organic Material", "Ship", "Oil Spill", "Marine Water", "Sediment-Laden Water", "Foam", "Turbid Water", "Shallow Water", "Waves & Wakes", "Oil Platform", "Jellyfish", "Sea snot"], "ygap": 4, "z": [[100.0, 0.0, 0.0, 11.23, 3.6, 0.0, 80.93, 0.21, 1.69, 3.39, 2.33, 2.54, 0.0, 0.0, 0.0], [0.0, 100.0, 71.43, 0.0, 1.3, 0.0, 40.26, 0.0, 0.0, 0.0, 3.9, 1.3, 0.0, 0.0, 0.0], [0.0, 35.03, 100.0, 0.0, 1.27, 0.0, 29.94, 0.0, 0.0, 0.0, 1.27, 1.91, 3.82, 0.0, 0.0], [57.61, 0.0, 0.0, 100.0, 2.17, 0.0, 77.17, 0.0, 1.09, 7.61, 3.26, 4.35, 0.0, 0.0, 0.0], [5.7, 0.34, 0.67, 0.67, 100.0, 1.01, 47.32, 0.0, 0.0, 11.74, 3.36, 40.27, 2.68, 0.0, 1.34], [0.0, 0.0, 0.0, 0.0, 0.83, 100.0, 1.94, 0.0, 0.0, 0.0, 0.28, 0.83, 12.47, 0.0, 0.0], [28.09, 2.28, 3.46, 5.22, 10.37, 0.51, 100.0, 0.15, 0.96, 2.06, 4.49, 8.75, 0.59, 0.37, 1.18], [1.75, 0.0, 0.0, 0.0, 0.0, 0.0, 3.51, 100.0, 5.26, 15.79, 0.0, 0.0, 0.0, 0.0, 0.0], [13.79, 0.0, 0.0, 1.72, 0.0, 0.0, 22.41, 5.17, 100.0, 17.24, 1.72, 0.0, 0.0, 0.0, 0.0], [6.9, 0.0, 0.0, 3.02, 15.09, 0.0, 12.07, 3.88, 4.31, 100.0, 0.0, 9.91, 0.0, 0.0, 0.0], [7.86, 2.14, 1.43, 2.14, 7.14, 0.71, 43.57, 0.0, 0.71, 0.0, 100.0, 3.57, 2.14, 0.0, 0.71], [5.36, 0.45, 1.34, 1.79, 53.57, 1.34, 53.12, 0.0, 0.0, 10.27, 2.23, 100.0, 3.57, 0.0, 0.45], [0.0, 0.0, 1.72, 0.0, 2.3, 12.93, 2.3, 0.0, 0.0, 0.0, 0.86, 2.3, 100.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 41.67, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 100.0, 0.0], [0.0, 0.0, 0.0, 0.0, 6.35, 0.0, 25.4, 0.0, 0.0, 0.0, 1.59, 1.59, 0.0, 0.0, 100.0]]}],
+                        {"annotations": [{"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Marine Debris", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "11.23", "x": "Natural Organic Material", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.6", "x": "Ship", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "80.93", "x": "Marine Water", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.21", "x": "Sediment-Laden Water", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.69", "x": "Foam", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.39", "x": "Turbid Water", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.33", "x": "Shallow Water", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.54", "x": "Waves & Wakes", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Platform", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Marine Debris", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Marine Debris", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Dense Sargassum", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "71.43", "x": "Sparse Floating Algae", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Natural Organic Material", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.3", "x": "Ship", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "40.26", "x": "Marine Water", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Foam", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Turbid Water", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.9", "x": "Shallow Water", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.3", "x": "Waves & Wakes", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Platform", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Dense Sargassum", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Marine Debris", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "35.03", "x": "Dense Sargassum", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Natural Organic Material", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.27", "x": "Ship", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "29.94", "x": "Marine Water", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Foam", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Turbid Water", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.27", "x": "Shallow Water", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.91", "x": "Waves & Wakes", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.82", "x": "Oil Platform", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Sparse Floating Algae", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "57.61", "x": "Marine Debris", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Natural Organic Material", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.17", "x": "Ship", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "77.17", "x": "Marine Water", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.09", "x": "Foam", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "7.61", "x": "Turbid Water", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.26", "x": "Shallow Water", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "4.35", "x": "Waves & Wakes", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Platform", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Natural Organic Material", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "5.7", "x": "Marine Debris", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.34", "x": "Dense Sargassum", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.67", "x": "Sparse Floating Algae", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.67", "x": "Natural Organic Material", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Ship", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.01", "x": "Oil Spill", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "47.32", "x": "Marine Water", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Foam", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "11.74", "x": "Turbid Water", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.36", "x": "Shallow Water", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "40.27", "x": "Waves & Wakes", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.68", "x": "Oil Platform", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.34", "x": "Sea snot", "xref": "x", "y": "Ship", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Marine Debris", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Natural Organic Material", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.83", "x": "Ship", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Oil Spill", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.94", "x": "Marine Water", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Foam", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Turbid Water", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.28", "x": "Shallow Water", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.83", "x": "Waves & Wakes", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "12.47", "x": "Oil Platform", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Oil Spill", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "28.09", "x": "Marine Debris", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.28", "x": "Dense Sargassum", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.46", "x": "Sparse Floating Algae", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "5.22", "x": "Natural Organic Material", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "10.37", "x": "Ship", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.51", "x": "Oil Spill", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Marine Water", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.15", "x": "Sediment-Laden Water", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.96", "x": "Foam", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.06", "x": "Turbid Water", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "4.49", "x": "Shallow Water", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "8.75", "x": "Waves & Wakes", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.59", "x": "Oil Platform", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.37", "x": "Jellyfish", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.18", "x": "Sea snot", "xref": "x", "y": "Marine Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.75", "x": "Marine Debris", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Natural Organic Material", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Ship", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.51", "x": "Marine Water", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "5.26", "x": "Foam", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "15.79", "x": "Turbid Water", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Shallow Water", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Waves & Wakes", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Platform", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Sediment-Laden Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "13.79", "x": "Marine Debris", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.72", "x": "Natural Organic Material", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Ship", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "22.41", "x": "Marine Water", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "5.17", "x": "Sediment-Laden Water", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Foam", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "17.24", "x": "Turbid Water", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.72", "x": "Shallow Water", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Waves & Wakes", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Platform", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Foam", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "6.9", "x": "Marine Debris", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.02", "x": "Natural Organic Material", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "15.09", "x": "Ship", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "12.07", "x": "Marine Water", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.88", "x": "Sediment-Laden Water", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "4.31", "x": "Foam", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Turbid Water", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Shallow Water", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "9.91", "x": "Waves & Wakes", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Platform", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Turbid Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "7.86", "x": "Marine Debris", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.14", "x": "Dense Sargassum", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.43", "x": "Sparse Floating Algae", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.14", "x": "Natural Organic Material", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "7.14", "x": "Ship", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.71", "x": "Oil Spill", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "43.57", "x": "Marine Water", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.71", "x": "Foam", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Turbid Water", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Shallow Water", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.57", "x": "Waves & Wakes", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.14", "x": "Oil Platform", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.71", "x": "Sea snot", "xref": "x", "y": "Shallow Water", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "5.36", "x": "Marine Debris", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.45", "x": "Dense Sargassum", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.34", "x": "Sparse Floating Algae", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.79", "x": "Natural Organic Material", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "53.57", "x": "Ship", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.34", "x": "Oil Spill", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "53.12", "x": "Marine Water", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Foam", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "10.27", "x": "Turbid Water", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.23", "x": "Shallow Water", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Waves & Wakes", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "3.57", "x": "Oil Platform", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.45", "x": "Sea snot", "xref": "x", "y": "Waves & Wakes", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Marine Debris", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.72", "x": "Sparse Floating Algae", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Natural Organic Material", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.3", "x": "Ship", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "12.93", "x": "Oil Spill", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.3", "x": "Marine Water", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Foam", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Turbid Water", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.86", "x": "Shallow Water", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "2.3", "x": "Waves & Wakes", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Oil Platform", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Oil Platform", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Marine Debris", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Natural Organic Material", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Ship", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "41.67", "x": "Marine Water", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Foam", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Turbid Water", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Shallow Water", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Waves & Wakes", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Platform", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Jellyfish", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sea snot", "xref": "x", "y": "Jellyfish", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Marine Debris", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Dense Sargassum", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sparse Floating Algae", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Natural Organic Material", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "6.35", "x": "Ship", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Spill", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "25.4", "x": "Marine Water", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Sediment-Laden Water", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Foam", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Turbid Water", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.59", "x": "Shallow Water", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "1.59", "x": "Waves & Wakes", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Oil Platform", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "white"}, "showarrow": false, "text": "0.0", "x": "Jellyfish", "xref": "x", "y": "Sea snot", "yref": "y"}, {"font": {"color": "black"}, "showarrow": false, "text": "100.0", "x": "Sea snot", "xref": "x", "y": "Sea snot", "yref": "y"}], "height": 600, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Percentage of Class Co-occurence", "x": 0.5, "y": 0.99}, "xaxis": {"dtick": 1, "gridcolor": "rgb(0, 0, 0)", "showgrid": false, "side": "top", "ticks": "", "zeroline": false}, "yaxis": {"autorange": "reversed", "dtick": 1, "showgrid": false, "ticks": "", "ticksuffix": "  ", "zeroline": false}},
+                        {"responsive": true}
+                    )
+                };
+                
+            </script>
+        </div></body>
+              </html>

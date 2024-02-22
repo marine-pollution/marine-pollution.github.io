@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buttons in Line</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+
+  .content-container {
+    text-align: center; /* Centers the content horizontally */
+    padding-top: 130px; /* Adds padding at the top of the container */
+  }
+
+  img {
+    max-width: 40%;
+    height: auto;
+    margin-bottom: 100px; /* Increased margin between the image and the buttons */
+  }
+
+  .topnav {
+    display: flex; /* Aligns items in a row */
+    flex-wrap: wrap; /* Allows items to wrap in case of overflow */
+    gap: 10px; /* Adds space between each item */
+    padding: 10px; /* Adds padding inside the container for spacing */
+    box-sizing: border-box; /* Ensures padding does not affect overall width */
+    justify-content: center; /* Centers the buttons horizontally */
+    margin: auto; /* Centers the navigation menu horizontally in the page */
+  }
+
+  .topnav a {
+    background-color: white; 
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    border: 2px solid #27aae2;
+    border-radius: 20px; /* Gives an oval rectangular shape */
+    transition: background-color 0.4s, color 0.4s; /* Smooth transition for hover effect */
+  }
+
+  .topnav a:hover {
+    background-color: #27aae2;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<div class="content-container">
+  <!-- Image above the navigation menu -->
+  <img src="static/images/MADOS_LOGO_text_2.png" alt="MADOS Logo">
+
+  <!-- Navigation menu -->
+  <div class="topnav">
+    <a href="index.html">Project Page</a>
+    <a href="Report_Patches_stats.html">Patch & Pixels Statistics</a>
+    <a href="Report_EDA.html">Class Distribution</a>
+    <a href="Report_Signatures.html">Spectral Signatures Analysis</a>
+  </div>
+</div>
+
+</body>
+</html>
